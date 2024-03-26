@@ -1,0 +1,76 @@
+
+<div class="row">
+    <div class="col-4 col-md-4 col-xl-4">
+        <form [formGroup] = "miFormulario" (ngSubmit)="submit()" >
+        
+            <label class="form-label">Ingrese un vehiculo:</label>
+            
+            <input type="text" class="form-control my-2" placeholder="Ingrese un código" formControlName="codigo"
+            [ngClass]="{'is-invalid': miFormulario.get('codigo')?.invalid && miFormulario.get('codigo')?.touched}">
+            
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('codigo')?.invalid && miFormulario.get('codigo')?.touched">
+                Este campo es obligatorio y acepta solo numeros enteros
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese marca del vehiculo" formControlName="marca"
+            [ngClass]="{'is-invalid': miFormulario.get('marca')?.invalid && miFormulario.get('marca')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('marca')?.invalid && miFormulario.get('marca')?.touched">
+                Este campo es obligatorio y acepta de 5 a 50 caracteres
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese modelo" formControlName="modelo"
+            [ngClass]="{'is-invalid': miFormulario.get('modelo')?.invalid && miFormulario.get('modelo')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('modelo')?.invalid && miFormulario.get('modelo')?.touched">
+                Este campo es obligatorio y acepta de 5 a 100 caracteres
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese año" formControlName="anio"
+            [ngClass]="{'is-invalid': miFormulario.get('anio')?.invalid && miFormulario.get('anio')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('anio')?.invalid && miFormulario.get('anio')?.touched">
+                Este campo es obligatorio
+            </div>
+
+<!--
+            <input type="text" class="form-control my-2" placeholder="Ingrese color" formControlName="color" 
+            [ngClass]="{'is-invalid': miFormulario.get('color')?.invalid && miFormulario.get('color')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('color')?.invalid && miFormulario.get('color')?.touched">
+                Este campo es obligatorio
+            </div> 
+-->
+
+            <input type="text" class="form-control my-2" placeholder="Ingrese Kilometraje" formControlName="kilometraje"
+            [ngClass]="{'is-invalid': miFormulario.get('kilometraje')?.invalid && miFormulario.get('kilometraje')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('kilometraje')?.invalid && miFormulario.get('kilometraje')?.touched">
+                Este campo es obligatorio
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Ingrese Precio" formControlName="precio"
+            [ngClass]="{'is-invalid': miFormulario.get('precio')?.invalid && miFormulario.get('precio')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('precio')?.invalid && miFormulario.get('precio')?.touched">
+                Este campo es obligatorio
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Ingrese Calificación" formControlName="calificacion"
+            [ngClass]="{'is-invalid': miFormulario.get('calificacion')?.invalid && miFormulario.get('calificacion')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('calificacion')?.invalid && miFormulario.get('calificacion')?.touched">
+                Este campo es obligatorio
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese una url de imagen" formControlName="foto"
+            [ngClass]="{'is-invalid': miFormulario.get('foto')?.invalid && miFormulario.get('foto')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('foto')?.invalid && miFormulario.get('foto')?.touched">
+                Este campo es obligatorio y acepta de 5 a 500 caracteres
+            </div>
+        
+            <button class="btn btn-primary my-4" type="submit">Actualizar Vehiculo</button>
+
+        </form>
+        
+        
+    </div>
+</div>
+
+<p class="text-danger" *ngIf="!vehiculo">No se encontró vehiculo</p>
+<pre>{{vehiculo | json}}</pre>
+
+

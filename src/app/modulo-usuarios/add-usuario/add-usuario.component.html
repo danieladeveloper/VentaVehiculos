@@ -1,0 +1,49 @@
+
+<div class="row">
+    <div class="col-4 col-md-4 col-xl-4">
+        <form [formGroup] = "miFormulario" (ngSubmit)="submit()" >
+        
+            <label class="form-label">Ingrese un Cliente (usuario):</label>
+            
+            <input type="text" class="form-control my-2" placeholder="Ingrese un id" formControlName="id"
+            [ngClass]="{'is-invalid': miFormulario.get('id')?.invalid && miFormulario.get('id')?.touched}">
+            
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('id')?.invalid && miFormulario.get('id')?.touched">
+                Este campo es obligatorio y acepta solo numeros enteros
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese Nombre" formControlName="nombre"
+            [ngClass]="{'is-invalid': miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched">
+                Este campo es obligatorio y acepta de 2 a 50 caracteres
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese apellido" formControlName="apellido"
+            [ngClass]="{'is-invalid': miFormulario.get('apellido')?.invalid && miFormulario.get('apellido')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('apellido')?.invalid && miFormulario.get('apellido')?.touched">
+                Este campo es obligatorio y acepta de 2 a 50 caracteres
+            </div>
+        
+            <input type="text" class="form-control my-2" placeholder="Ingrese password" formControlName="password"
+            [ngClass]="{'is-invalid': miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
+                Este campo es obligatorio y acepta de 5 a 30 caracteres
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Ingrese telefono" formControlName="telefono"
+            [ngClass]="{'is-invalid': miFormulario.get('telefono')?.invalid && miFormulario.get('telefono')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('telefono')?.invalid && miFormulario.get('telefono')?.touched">
+                Este campo es obligatorio
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Ingrese email" formControlName="email"
+            [ngClass]="{'is-invalid': miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched}">
+            <div class="alert alert-danger w-25" *ngIf="miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched">
+                Este campo acepta solo direcciones de email
+            </div>
+        
+            <button class="btn btn-primary my-4" type="submit">Crear Usuario</button>
+
+        </form>
+    </div>
+</div>
