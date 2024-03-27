@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit{
   menu: string;
 
   constructor(public varVehiculoService: VehiculosServiceService){
-    this.menu = "Vehículos App";
+    this.menu = "Venta de Vehículos";
   }
 
   ngOnInit(): void {

@@ -12,11 +12,13 @@ import { ModuloUsuariosModule } from './modulo-usuarios/modulo-usuarios.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NotFoundPageComponent,
+    
   ],
   imports: [
     BrowserModule,

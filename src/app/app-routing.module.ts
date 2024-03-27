@@ -7,6 +7,7 @@ import { UsuariosComponent } from './modulo-usuarios/usuarios/usuarios.component
 import { AddVehiculoComponent } from './modulo-vehiculos/add-vehiculo/add-vehiculo.component';
 import { AddUsuarioComponent } from './modulo-usuarios/add-usuario/add-usuario.component';
 import { DetailUsuarioComponent } from './modulo-usuarios/detail-usuario/detail-usuario.component';
+import { VerVehiculoComponent } from './modulo-vehiculos/ver-vehiculo/ver-vehiculo.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'vehiculo/:id',
     component: DetailVehiculoComponent
+  },
+  {
+    path: 'ver/:id',
+    component: VerVehiculoComponent
   },
   {
     path: 'nuevo',

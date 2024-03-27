@@ -4,7 +4,7 @@ import { VehiculosServiceService } from '../vehiculos-service.service';
 import { Route, Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router'
-
+import { VehiculoEstrellasPipe } from '../vehiculo-estrellas.pipe';
 
 @Component({
   selector: 'app-vehiculos',
@@ -12,6 +12,10 @@ import { ActivatedRoute } from '@angular/router'
   styleUrl: './vehiculos.component.css'
 })
 export class VehiculosComponent implements OnInit{
+
+  mostrarImagen= true;
+
+
 
   txtBusqueda: string = "";
   //vehiculoList:VehiculoX[]=[];
@@ -31,6 +35,11 @@ export class VehiculosComponent implements OnInit{
   ngOnInit(): void {
       this.consultarVehiculos();
   }
+
+  mostrar(){
+    this.mostrarImagen = !this.mostrarImagen
+  }
+
 
   consultarVehiculos(){
     this.varVehiculoService.getVehiculos(this.filtro, this.rows, this.page).subscribe(respuesta =>{
@@ -111,8 +120,8 @@ export class VehiculosComponent implements OnInit{
 
     return estrellas;
 
-  }*/
+  }
 
-
+*/
 
 }

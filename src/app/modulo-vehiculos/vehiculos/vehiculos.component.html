@@ -1,18 +1,28 @@
   <h3>Lista de Vehiculos</h3>
-  <form  role="search">
-    <label>Filtrar Vehiculo</label>
-    
-    <input class="form-control me-2" type="search" placeholder="Buscar Vehiculo" aria-label="Search" name="filtro" 
-    [(ngModel)]="filtro" 
-    (keyup)="consultarVehiculos()"
-    >
-    
-  </form>
-  
+
+  <div class="row">
+  <div class="col-md-4">
+    <a class="btn btn-success" [routerLink]="['/nuevo/']">Nuevo Vehiculo</a>
+  </div>
+  <div class="col-md-8">
+    <form  role="search">
+      <label>Filtrar Vehiculo</label>
+      
+      <input class="form-control me-2" type="search" placeholder="Buscar Vehiculo" aria-label="Search" name="filtro" 
+      [(ngModel)]="filtro" 
+      (keyup)="consultarVehiculos()"
+      >
+      
+    </form>
+  </div>
+  </div>
+
+ 
+
   <table class="table table-striped table-hover">
       
       <thead>
-        <tr colspan="10">
+        <tr colspan="5">
           <div class="row">
             <div class="col-5">
               <label># de Registros:</label>
@@ -25,16 +35,13 @@
               </select>
 
             </div>
-            <div class="col-5">
-              <a class="btn btn-success" [routerLink]="['/nuevo/']">Nuevo Vehiculo</a>
-            </div>
+            
           </div>
-
-
-          
 
         </tr>
         <tr>
+         
+
           <th>Codigo</th>
           <th>Marca</th>
           <th>Modelo</th>
@@ -43,7 +50,12 @@
           <th>Km</th>
           <th>Precio</th>
           <th>Calificacion</th>
-          <th>Img</th>
+           <!--<th>Imagen</th>-->
+          <button class=" btn btn-sm" 
+          [ngClass]="{'btn-success': mostrarImagen, 'btn-info': !mostrarImagen }" 
+          (click)="mostrar()">
+          {{mostrarImagen ? 'Ocultar': 'Mostrar'}}
+           Imagen</button>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -60,17 +72,12 @@
           <td>{{vehiculoItem.kilometraje | number}}</td>
           <td>{{vehiculoItem.precio | currency}}</td>
 
+          <td [innerHTML]="vehiculoItem.calificacion | vehiculoEstrellas"></td>
+          <td ><img src="{{vehiculoItem.foto}}" *ngIf="mostrarImagen"></td>
           <td>
-            
-            {{vehiculoItem.calificacion}}
-          
-          </td>
-          <td><img src="{{vehiculoItem.foto}}" /></td>
-          <td>
-            
-            <button name="btnVerDetalle" id="btnVerDetalle" class="btn btn-primary" [routerLink]="['/vehiculo/',vehiculoItem.codigo]">Ver</button>
-            <button name="btnEliminar" id="btnEliminar" (click)="eliminar(vehiculoItem.codigo)" class="btn btn-secondary">Eliminar</button>
-          
+            <button name="btnVerDetalle" id="btnVerDetalle" class="btn btn-primary btn-sm" [routerLink]="['/ver/',vehiculoItem.codigo]">Ver</button>            
+            <button name="btnVerDetalle" id="btnVerDetalle" class="btn btn-secondary btn-sm" [routerLink]="['/vehiculo/',vehiculoItem.codigo]">Editar</button>
+            <button name="btnEliminar" id="btnEliminar" (click)="eliminar(vehiculoItem.codigo)" class="btn btn-danger btn-sm">Eliminar</button>
           </td>
         </tr>
 

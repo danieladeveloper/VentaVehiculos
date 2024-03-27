@@ -6,6 +6,8 @@ import { VehiculoMainPageComponent } from './vehiculo-main-page/vehiculo-main-pa
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { VehiculoEstrellasPipe } from './vehiculo-estrellas.pipe';
+import { VerVehiculoComponent } from './ver-vehiculo/ver-vehiculo.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { VehiculosComponent } from './vehiculos/vehiculos.component';
     VehiculosComponent, 
     AddVehiculoComponent,
     DetailVehiculoComponent,
-    VehiculoMainPageComponent
+    VehiculoMainPageComponent,
+    VehiculoEstrellasPipe,
+    VerVehiculoComponent
   ],
   exports: [
     VehiculosComponent, 

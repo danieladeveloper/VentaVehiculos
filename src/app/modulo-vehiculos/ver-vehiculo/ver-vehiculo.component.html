@@ -1,0 +1,23 @@
+<h3>Detalle del vehículo</h3>
+
+
+
+<div class="card" style="width: 18rem;">
+    <img src="{{vehiculo.foto}}" alt="" *ngIf="vehiculo && vehiculo.foto" >
+    <div class="card-body">
+      <h5 class="card-title">{{vehiculo?.marca}} </h5>
+      <div class="card-text">
+        <ul class="list-group">
+            <li class="list-group-item">{{vehiculo?.codigo}} </li>
+            <li class="list-group-item">{{vehiculo?.modelo}} </li>
+            <li class="list-group-item">{{vehiculo?.anio}} </li>
+            <li class="list-group-item">{{vehiculo?.kilometraje}} </li>
+            <li class="list-group-item">{{vehiculo?.precio}} </li>
+            
+        </ul>
+      </div>
+      <a class="btn btn-primary" [routerLink]="['/']">Home</a>
+    </div>
+  </div>
+ 
+  <p class="text-danger" *ngIf="!vehiculo">No se encontró vehiculo</p>
